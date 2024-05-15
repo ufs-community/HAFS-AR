@@ -1,4 +1,4 @@
-RUnning the HAFS global requires GFS physics (sfc) and dynamics (atm)
+Running the HAFS global requires GFS physics (sfc) and dynamics (atm)
 files at the initialization time. The atm_ic job will interpolate this
 to the grid of interest.
 
