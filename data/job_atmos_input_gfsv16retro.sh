@@ -10,23 +10,22 @@
 #SBATCH -t 06:00:00
 #SBATCH -D .
 
-set -x
-
-#WCOSS Dell
-module load HPSS/5.0.2.5
-#Hera
-module load hpss/hpss
-#Jet
+module purge
 module load hpss
-
 module list
 
-#HTAR="htar -Hnostage"
+set -xue
+
+which hsi
+which htar
+
 HTAR="htar"
+
+which ${HTAR}
 
 date
 
-cd /lfs/h2/emc/hafstemp/hafs-input/COMGFSv16
+set +e
 
 #ymdh=$1
 #atmstr=$2

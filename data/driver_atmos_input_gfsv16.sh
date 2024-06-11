@@ -19,31 +19,30 @@ ACCOUNT=$1
 
 if [[ -e /lfs/h2/emc ]]; then
  #WCOSS2
-# module load ips/18.0.1.163
- module load prod_util/2.0.13
  BSUB="qsub"
 elif [[ -e /scratch1/NCEPDEV/hwrf ]]; then
  #Hera
- module use /scratch2/NCEPDEV/nwprod/NCEPLIBS/modulefiles
- module load prod_util/1.1.0
  BSUB="sbatch --job-name=job --account=$ACCOUNT --qos=batch --partition=service --ntasks=1 -t 12:00:00"
 elif [[ -e /mnt/lfs4/HFIP ]]; then
  #Jet
- module use /lfs4/HFIP/hfv3gfs/nwprod/hpc-stack/libs/modulefiles/stack
- module load hpc/1.1.0
- module load hpc-intel/18.0.5.274
- module load prod_util/1.2.2
  BSUB="sbatch --job-name=job --account=$ACCOUNT --qos=batch --partition=service --ntasks=1 -t 12:00:00"
 else
  echo "Unknown platform. Exiting."
  exit
 fi
 
- NDATE=${NDATE:-/gpfs/hps/nco/ops/nwprod/prod_util.v1.0.28/exec/ndate}
-
  bdate=${2:-2020090700}
  edate=${3:-${bdate-:2020090700}}
 
+add_six_hours() {
+    local yyyy mm dd hh posix
+    yyyy=${1:0:4}
+    mm=${1:4:2}
+    dd=${1:6:2}
+    hh=${1:8:2}
+    posix="${yyyy}-${mm}-${dd}t${hh}:00:00 UTC"
+    date -d "$posix + 6 hours" +%Y%m%d%H
+}
 
 #export hpssgfspararoot=${hpssgfspararoot:-/NCEPDEV/emc-global/5year/emc.glopara/WCOSS_D/gfsv16/v16rt2}
 #export hpssgfsprodroot=${hpssgfsprodroot:-/NCEPPROD/hpssprod/runhistory}
@@ -103,7 +102,8 @@ do
   rm -f logs/job.log.${ymdh}
   cat ./${JOBSH} | sed "s,_ACCOUNT_NAME_,$ACCOUNT,g" | \
       ${BSUB} -o logs/job.log.${ymdh} -e logs/job.log.${ymdh}
-  cdate=$(${NDATE} +6 ${cdate})
+
+  cdate=$( add_six_hours $cdate )
 done
 
 echo 'done'

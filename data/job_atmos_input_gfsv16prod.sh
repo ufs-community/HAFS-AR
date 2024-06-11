@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 #SBATCH --job-name=job
 #SBATCH --account=_ACCOUNT_NAME_
@@ -10,30 +10,35 @@
 #SBATCH -t 06:00:00
 #SBATCH -D .
 
-#WCOSS Dell
-#module load HPSS/5.0.2.5
-#Hera
-#module load hpss/hpss
-#Jet
-#module load hpss
-
+module purge
 module load hpss
 module list
 
-set -x
+set -xue
 
 which hsi
 which htar
 
-#HTAR="htar -Hnostage"
 HTAR="htar"
+
+which ${HTAR}
 
 date
 
-NDATE=${NDATE:-/gpfs/hps/nco/ops/nwprod/prod_util.v1.0.28/exec/ndate}
+set +e
+
+add_six_hours() {
+    local yyyy mm dd hh posix
+    yyyy=${1:0:4}
+    mm=${1:4:2}
+    dd=${1:6:2}
+    hh=${1:8:2}
+    posix="${yyyy}-${mm}-${dd}t${hh}:00:00 UTC"
+    date -d "$posix + 6 hours" +%Y%m%d%H
+}
 
 ymdh=${ymdh:-${1:-2023010100}}
-ymdh6=$(${NDATE} +6 ${ymdh})
+ymdh6=$( add_six_hours ${ymdh} )
 atmstr=${atmstr:-${2:-}}
 
 ymd=`echo $ymdh | cut -c1-8`
