@@ -1,7 +1,7 @@
 #!/bin/sh
 
 #SBATCH --job-name=job
-#SBATCH --account=zrtrr
+#SBATCH --account=_ACCOUNT_NAME_
 #SBATCH -o job.log.%j
 #SBATCH -e job.log.%j
 #SBATCH --ntasks=1

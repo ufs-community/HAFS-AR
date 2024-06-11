@@ -1,20 +1,14 @@
 #!/bin/sh
-#PBS -q dev_transfer
-#PBS -A HWRF-DEV
-#PBS -j oe
-#PBS -N d2020
-#PBS -l place=vscatter,select=1:ncpus=1:mpiprocs=1
-#PBS -l walltime=06:00:00
-##
-##SBATCH --job-name=job
-##SBATCH --account=hurricane
-##SBATCH -o job.log.%j
-##SBATCH -e job.log.%j
-##SBATCH --ntasks=1
-##SBATCH --qos=batch
-##SBATCH --partition=service
-##SBATCH -t 06:00:00
-##SBATCH -D .
+
+#SBATCH --job-name=job
+#SBATCH --account=_ACCOUNT_NAME_
+#SBATCH -o job.log.%j
+#SBATCH -e job.log.%j
+#SBATCH --ntasks=1
+#SBATCH --qos=batch
+#SBATCH --partition=service
+#SBATCH -t 06:00:00
+#SBATCH -D .
 
 set -x
 
