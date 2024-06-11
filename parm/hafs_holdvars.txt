@@ -85,6 +85,7 @@ export FGATINV={FGATINV}
 export FGATEND={FGATEND}
 
 export twowaynest={twowaynest}
+export atm_ic_use_thomp_mp_climo={atm_ic_use_thomp_mp_climo}
 
 export vi_min_wind_for_init={vi_min_wind_for_init}
 export vi_warm_start_vmax_threshold={vi_warm_start_vmax_threshold}

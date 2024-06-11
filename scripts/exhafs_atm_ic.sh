@@ -260,6 +260,7 @@ cat>./fort.41<<EOF
  nst_files_input_grid="${nst_files_input_grid:-NULL}"
  grib2_file_input_grid="${grib2_file_input_grid}"
  varmap_file="${varmap_file}"
+ thomp_mp_climo_file="$FIXhafs/fix_am/Thompson_MP_MONTHLY_CLIMO.nc"
  cycle_mon=$month
  cycle_day=$day
  cycle_hour=$hour
@@ -356,6 +357,7 @@ cat>./fort.41<<EOF
  nst_files_input_grid="${nst_files_input_grid:-NULL}"
  grib2_file_input_grid="${grib2_file_input_grid}"
  varmap_file="${varmap_file}"
+ thomp_mp_climo_file="$FIXhafs/fix_am/Thompson_MP_MONTHLY_CLIMO.nc"
  cycle_mon=$month
  cycle_day=$day
  cycle_hour=$hour
