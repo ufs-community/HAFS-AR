@@ -1,7 +1,7 @@
 [submodule "ufs-weather-model"]
     path = sorc/hafs_forecast.fd
-    url = https://github.com/ufs-community/ufs-weather-model
-    branch = develop
+    url = https://github.com/SamuelTrahanNOAA/ufs-weather-model
+    branch = number-concentration
 [submodule "UFS_UTILS"]
     path = sorc/hafs_utils.fd
     url = https://github.com/ufs-community/UFS_UTILS
