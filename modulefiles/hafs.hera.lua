@@ -6,7 +6,7 @@ prepend_path("MODULEPATH", "/contrib/sutils/modulefiles")
 load("sutils")
 load("hpss")
 
-prepend_path("MODULEPATH", "/scratch1/NCEPDEV/nems/role.epic/spack-stack/spack-stack-1.5.1/envs/unified-env-rocky8/install/modulefiles/Core")
+prepend_path("MODULEPATH", "/scratch1/NCEPDEV/nems/role.epic/spack-stack/spack-stack-1.6.0/envs/unified-env-rocky8/install/modulefiles/Core")
 
 stack_intel_ver=os.getenv("stack_intel_ver") or "2021.5.0"
 load(pathJoin("stack-intel", stack_intel_ver))
@@ -38,7 +38,7 @@ local hafs_modules = {
   {["bacio"]           = "2.4.1"},
   {["crtm"]            = "2.4.0"},
   {["g2"]              = "3.4.5"},
-  {["g2tmpl"]          = "1.10.2"},
+  {["g2tmpl"]          = "1.12.0"},
   {["ip"]              = "4.3.0"},
   {["nemsio"]          = "2.5.4"},
   {["sp"]              = "2.3.3"},
