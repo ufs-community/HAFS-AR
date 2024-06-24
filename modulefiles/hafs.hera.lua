@@ -7,6 +7,7 @@ load("sutils")
 load("hpss")
 
 prepend_path("MODULEPATH", "/scratch1/NCEPDEV/nems/role.epic/spack-stack/spack-stack-1.6.0/envs/unified-env-rocky8/install/modulefiles/Core")
+--- prepend_path("MODULEPATH", "/scratch1/NCEPDEV/nems/role.epic/spack-stack/spack-stack-1.6.0/envs/upp-addon-env/install/modulefiles/Core")
 
 stack_intel_ver=os.getenv("stack_intel_ver") or "2021.5.0"
 load(pathJoin("stack-intel", stack_intel_ver))
@@ -14,16 +15,16 @@ load(pathJoin("stack-intel", stack_intel_ver))
 stack_impi_ver=os.getenv("stack_impi_ver") or "2021.5.1"
 load(pathJoin("stack-intel-oneapi-mpi", stack_impi_ver))
 
-load("python/3.10.8")
---- load(pathJoin("stack-python","3.10.8"))
+load("python/3.10.13")
+--- load(pathJoin("stack-python","3.10.13"))
 
 cmake_ver=os.getenv("cmake_ver") or "3.23.1"
 load(pathJoin("cmake", cmake_ver))
 
 local hafs_modules = {
-  {["python"]          = "3.10.8"},
+  {["python"]          = "3.10.13"},
   {["cmake"]           = "3.23.1"},
-  {["py-xarray"]       = "2022.3.0"},
+  {["py-xarray"]       = "2023.7.0"},
   {["py-netcdf4"]      = "1.5.8"},
   {["jasper"]          = "2.0.32"},
   {["zlib"]            = "1.2.13"},
@@ -31,17 +32,17 @@ local hafs_modules = {
   {["libpng"]          = "1.6.37"},
   {["hdf5"]            = "1.14.0"},
   {["netcdf-c"]        = "4.9.2"},
-  {["netcdf-fortran"]  = "4.6.0"},
+  {["netcdf-fortran"]  = "4.6.1"},
   {["parallelio"]      = "2.5.10"},
   {["esmf"]            = "8.5.0"},
-  {["fms"]             = "2023.02.01"},
+  {["fms"]             = "2023.04"},
   {["bacio"]           = "2.4.1"},
   {["crtm"]            = "2.4.0"},
   {["g2"]              = "3.4.5"},
-  {["g2tmpl"]          = "1.12.0"},
+---  {["g2tmpl"]          = "1.12.0"},
   {["ip"]              = "4.3.0"},
   {["nemsio"]          = "2.5.4"},
-  {["sp"]              = "2.3.3"},
+  {["sp"]              = "2.5.0"},
   {["w3emc"]           = "2.10.0"},
   {["w3nco"]           = "2.4.1"},
   {["gftl-shared"]     = "1.6.1"},
@@ -52,12 +53,12 @@ local hafs_modules = {
   {["sigio"]           = "2.3.2"},
   {["szip"]            = "2.1"},
   {["wrf-io"]          = "1.2.0"},
-  {["prod_util"]       = "1.2.2"},
+  {["prod_util"]       = "2.1.1"},
   {["grib-util"]       = "1.3.0"},
   {["wgrib2"]          = "2.0.8"},
   {["gempak"]          = "7.4.2"},
   {["nco"]             = "5.0.6"},
-  {["cdo"]             = "2.0.5"},
+  {["cdo"]             = "2.2.0"},
   {["rocoto"]          = "1.3.6"},
   {["scotch"]          = "7.0.4"},
 }
