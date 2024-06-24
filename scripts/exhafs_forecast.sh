@@ -1490,7 +1490,7 @@ fi
 
 # Prepare files needed by inline_post
 if [ ${write_dopost:-.false.} = .true. ]; then
-  ${NCP} ${PARMhafs}/post/itag ./itag
+  ${NCP} ${inline_post_itag:-${PARMhafs}/post/itag} ./itag
   ${NCP} ${PARMhafs}/post/params_grib2_tbl_new ./params_grib2_tbl_new
   if [ ${satpost:-.false.} = .true. ]; then
     ${NCP} ${postxconfig_satpost} ./postxconfig-NT.txt

@@ -213,6 +213,8 @@ export output_history={output_history}
 export ideflate={ideflate}
 export zstandard_level={zstandard_level}
 
+export inline_post_itag={inline_post_itag}
+
 export glob_k_split={glob_k_split}
 export glob_n_split={glob_n_split}
 export glob_layoutx={glob_layoutx}
