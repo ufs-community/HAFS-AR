@@ -22,7 +22,7 @@ elif [ ${target} == "orion" ]; then
 elif [ ${target} == "jet" ]; then
   FIXROOT=/lfs4/HFIP/hwrf-data/hafs-fix-files/hafs-${FIXversion}-fix/fix
 elif [[ $target =~ gaea ]]; then
-  FIXROOT=/lustre/f2/dev/Samuel.Trahan/hafs/hafs-fix-files/hafs-${FIXversion}-fix/fix
+  FIXROOT=/ncrc/proj/gsl-glo/hafs/hafs-fix-files/hafs-${FIXversion}-fix/fix
 else
   echo "FATAL ERROR: Unknown site " ${target}
   exit 1
