@@ -1,7 +1,7 @@
 ## This is the system-specific configuration file for Hera
 [config]
 ## Project disk area
-disk_project=esrl
+disk_project=gsl-glo
 ## Project hpss tape area
 tape_project=wrfruc
 ## CPU account name for submitting jobs to the batch system.
@@ -12,15 +12,15 @@ archive=hpss:/BMC/{tape_project}/2year/{ENV[USER]}/{SUBEXPT}/{out_prefix}.tar
 pygraf_can_run=no
 
 [dir]
-gaea_input=/lustre/f2/dev/Samuel.Trahan/hafs/hafs-input
-hafs_work=/lustre/f2/dev/{ENV[USER]}/hafs/work
+gaea_input=/ncrc/proj/gsl-glo/hafs/hafs-input
+hafs_work=/gpfs/f5/{disk_project}/proj-shared/{ENV[USER]}
 
 ## Save directory.  Make sure you edit this.
 CDSAVE={hafs_work}
 ## Non-scrubbed directory for track files, etc.  Make sure you edit this.
 CDNOSCRUB={hafs_work}/noscrub/hafstrak
 ## Scrubbed directory for large work files.  Make sure you edit this.
-CDSCRUB=/lustre/f2/scratch/{ENV[USER]}
+CDSCRUB=/gpfs/f5/{disk_project}/scratch/{ENV[USER]}
 ## Syndat directory for finding which cycles to run
 syndat={gaea_input}/SYNDAT-PLUS
 #oldcom={ENV[COMOLD]}
