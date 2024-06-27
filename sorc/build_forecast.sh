@@ -4,7 +4,7 @@ source ./machine-setup.sh > /dev/null 2>&1
 if [ $target = wcoss2 ]; then source ../versions/build.ver; fi
 cwd=$(pwd)
 
-if [[ $target =~ .*c5 ]] ; then target=gaea-c5 ; fi
+if [[ $target =~ .*c5 ]] ; then target=gaea ; fi
 
 cd hafs_forecast.fd/tests
 

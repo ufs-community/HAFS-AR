@@ -8,9 +8,9 @@ cp -fp ../modulefiles/hafs.hera.lua hafs_tracker.fd/modulefiles/hera.lua
 
 if [[ ! -s hafs_tracker.fd/modulefiles/gaea-c5.lua ]] ; then
     pushd hafs_tracker.fd
-    patch -p1 < ../customizations/hafs_tracker.fd/gaea-c5-patch.diff
+    patch -p1 < ../customizations/hafs_tracker.fd/gaea-c5-patch.diff || true
     popd
-    cp -fp customizations/hafs_tracker.fd/gaea-c5.lua hafs_tracker.fd/modulefiles/gaea-c5.lua
+    cp -fp customizations/hafs_tracker.fd/gaea-c5.lua hafs_tracker.fd/modulefiles/gaea.lua
 fi
 
 #export BUILD_TYPE=DEBUG 
