@@ -1,0 +1,1 @@
+../../sorc/hafs_post.fd/parm/postxconfig-NT-hafs_ar_nosat_l65.txt

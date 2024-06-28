@@ -72,7 +72,7 @@ elif [[ -d /glade ]] ; then
   fi
   target=cheyenne
   module purge
-elif [[ -d /lustre && -d /ncrc ]] ; then
+elif [[ -d /ncrc ]] ; then
   # You cannot "module purge" on GAEA
   if ( head /proc/cpuinfo | grep AuthenticAMD > /dev/null ) ; then
       target=gaea_c5

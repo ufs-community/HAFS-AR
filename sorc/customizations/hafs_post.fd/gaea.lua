@@ -5,7 +5,6 @@ help([[
 
 whatis([===[Loads libraries needed for building the UPP on Gaea ]===])
 
---- prepend_path("MODULEPATH", "/ncrc/proj/epic/spack-stack/spack-stack-1.6.0/envs/unified-env/install/modulefiles/Core")
 prepend_path("MODULEPATH", "/autofs/ncrc-svm1_proj/epic/spack-stack/spack-stack-1.6.0/envs/g2tmpl-addon-env/install/modulefiles/Core")
 
 stack_intel_ver=os.getenv("stack_intel_ver") or "2023.1.0"
@@ -20,27 +19,13 @@ load(pathJoin("stack-python", stack_python_ver))
 cmake_ver=os.getenv("cmake_ver") or "3.23.1"
 load(pathJoin("cmake", cmake_ver))
 
-local ufs_modules = {
-  {["jasper"]          = "2.0.32"},
-  {["zlib"]            = "1.2.13"},
-  {["libpng"]          = "1.6.37"},
-  {["hdf5"]            = "1.14.0"},
-  {["netcdf-c"]        = "4.9.2"},
-  {["netcdf-fortran"]  = "4.6.1"},
-  {["bacio"]           = "2.4.1"},
-  {["g2"]              = "3.4.5"},
-  {["g2tmpl"]          = "1.12.0"},
-  {["w3emc"]           = "2.10.0"},
-  {["w3nco"]           = "2.4.1"},
-  {["sigio"]           = "2.3.2"},
-}
-
-for i = 1, #ufs_modules do
-  for name, default_version in pairs(ufs_modules[i]) do
-    local env_version_name = string.gsub(name, "-", "_") .. "_ver"
-    load(pathJoin(name, os.getenv(env_version_name) or default_version))
-  end
-end
+load("upp_common")
 
 unload("darshan-runtime")
 unload("cray-libsci")
+
+setenv("CC","cc")
+setenv("CXX","CC")
+setenv("FC","ftn")
+
+setenv("CMAKE_Platform","gaea.intel")

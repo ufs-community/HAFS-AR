@@ -1,7 +1,9 @@
 [submodule "ufs-weather-model"]
     path = sorc/hafs_forecast.fd
-    url = https://github.com/ufs-community/ufs-weather-model
-    branch = develop
+# This points to the following pull request:
+# - https://github.com/ufs-community/ufs-weather-model/pull/2326
+    url = https://github.com/SamuelTrahanNOAA/ufs-weather-model
+    branch = number-concentration
 [submodule "UFS_UTILS"]
     path = sorc/hafs_utils.fd
     url = https://github.com/ufs-community/UFS_UTILS
@@ -27,7 +29,3 @@
     path = sorc/hafs_graphics.fd/pygraf
     url = https://github.com/NOAA-GSL/pygraf
     branch = arfs_dev
-[submodule "sorc/hafs_post.fd"]
-	path = sorc/hafs_post.fd
-	url = https://github.com/NOAA-EMC/UPP
-	branch = develop
