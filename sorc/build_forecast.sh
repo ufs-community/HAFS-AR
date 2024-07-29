@@ -6,6 +6,8 @@ cwd=$(pwd)
 
 if [[ $target =~ .*c5 ]] ; then target=gaea ; fi
 
+sed 's,.*darshan.*,,g' hafs_forecast.fd/modulefiles/ufs_gaea.intel.lua hafs_forecast.fd/FV3/upp/modulefiles/gaea.lua
+
 cd hafs_forecast.fd/tests
 
 app=HAFSW

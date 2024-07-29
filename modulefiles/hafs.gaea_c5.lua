@@ -68,7 +68,6 @@ end
 
 load("rocoto")
 
---- unload("darshan-runtime")
 unload("cray-libsci")
 
 setenv("CMAKE_C_COMPILER", "cc")
