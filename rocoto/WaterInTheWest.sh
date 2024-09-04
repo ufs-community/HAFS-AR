@@ -7,12 +7,32 @@ set -x
 
 cd ${HOMEhafs}/rocoto
 EXPT=$(basename ${HOMEhafs})
-SUBEXPT=$EXPT
-conf='../parm/WaterInTheWest.conf ../parm/WaterInTheWestL128C768.conf'
+SUBEXPT=${EXPT}
 opts="-t -f"
-
 scrubopt="config.scrub_work=no config.scrub_com=no"
+
+# Our target configuration, C768 128-level nested tile on a rotated stretched sphere:
+conf='../parm/WaterInTheWest.conf ../parm/WaterInTheWestC768.conf ../parm/WaterInTheWestL128C768.conf'
+
+# Alternative configurations
+
+# C384 128-level nested tile on a rotated stretched sphere
+# conf='../parm/WaterInTheWest.conf ../parm/WaterInTheWestC384.conf ../parm/WaterInTheWestL128C384.conf'
+
+# C192 128-level nested tile on a rotated stretched sphere
+# conf='../parm/WaterInTheWest.conf ../parm/WaterInTheWestC192.conf ../parm/WaterInTheWestL128.conf'
+
+# # C96 128-level nested tile on a rotated stretched sphere
+# conf='../parm/WaterInTheWest.conf ../parm/WaterInTheWestC96.conf ../parm/WaterInTheWestL128.conf'
+
+# # C384 128-level rotated stretched sphere with no nest
+# conf='../parm/WaterInTheWest.conf ../parm/WaterInTheWestC384.conf ../parm/WaterInTheWestL128.conf ../parm/WaterInTheWestC384NoNest.conf'
+
+# # C384 128-level uniform sphere (like GFS)
+# conf='../parm/WaterInTheWest.conf ../parm/WaterInTheWestC384.conf ../parm/WaterInTheWestL128.conf ../parm/WaterInTheWestC384Uniform.conf'
+
+# This script generates the workflow xml file and runs the workflow.
 ./run_hafs.py ${opts} 2023022400 00L HISTORY \
     config.EXPT=${EXPT} config.SUBEXPT=${SUBEXPT} \
     config.NHRS=6 ${scrubopt} \
-    $conf config.run_pygraf=yes
+    $conf
