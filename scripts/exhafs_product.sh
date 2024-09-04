@@ -88,6 +88,8 @@ COMOUTproduct=${COMOUTproduct:-${COMhafs}}
 mkdir -p ${COMOUTproduct}
 mkdir -p ${DATA}
 
+sync # workaround for GAEA filesystem issues
+
 tmp_vital=${WORKhafs}/tmpvit
 old_vital=${WORKhafs}/oldvit
 
@@ -96,6 +98,8 @@ old_vital=${WORKhafs}/oldvit
 
 DATA_tracker=${DATA}/tracker${neststr}
 mkdir -p ${DATA_tracker}
+
+sync # workaround for GAEA filesystem issues
 
 cd ${DATA_tracker}
 

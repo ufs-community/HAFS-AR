@@ -79,6 +79,8 @@ DATA=${DATA:-${WORKhafs}/atm_post}
 mkdir -p ${COMOUTpost} ${intercom}
 mkdir -p ${DATA}
 
+sync # workaround for GAEA filesystem bug
+
 FHRB=$(( $((${POST_GROUPI:-1}-1)) * ${NOUTHRS} ))
 FHRI=$(( ${POST_GROUPN:-1} * ${NOUTHRS} ))
 FHRE=${NHRS}
@@ -238,6 +240,8 @@ fi #if [ ${write_dopost:-.false.} = .true. ]
 DATA_POST=${DATA}/post${neststr}_${NEWDATE}
 rm -rf ${DATA_POST}
 mkdir -p ${DATA_POST}
+sync # workaround for GAEA filesystem bug
+
 cd ${DATA_POST}
 
 # Note: Currently the inline post (write_dopost) does not support nesting configurations yet.
