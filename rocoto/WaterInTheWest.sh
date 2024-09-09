@@ -58,4 +58,4 @@ conf='../parm/WaterInTheWest.conf ../parm/WaterInTheWestC768.conf ../parm/WaterI
 # conf='../parm/WaterInTheWest.conf ../parm/WaterInTheWestC384.conf ../parm/WaterInTheWestL128.conf ../parm/WaterInTheWestC384Uniform.conf'
 
 # C768 128-level uniform sphere (like GFS)
-# conf='../parm/WaterInTheWest.conf ../parm/WaterInTheWestC768.conf ../parm/WaterInTheWestL128C768.conf ../parm/WaterInTheWestC768NoNest.conf'
+# conf='../parm/WaterInTheWest.conf ../parm/WaterInTheWestC768.conf ../parm/WaterInTheWestL128C768.conf ../parm/WaterInTheWestC768Uniform.conf'
