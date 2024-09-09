@@ -19,7 +19,7 @@ fi
 target=""
 USERNAME=$(echo $LOGNAME | awk '{ print tolower($0)'})
 
-if [[ -d /lfs4 ]] ; then
+if [[ -d /lfs5 ]] ; then
   # We are on NOAA Jet
   if ( ! eval module help > /dev/null 2>&1 ) ; then
     echo load the module command 1>&2
@@ -78,6 +78,10 @@ elif [[ -d /ncrc ]] ; then
       target=gaea_c5
   else
       target=gaea
+  fi
+  if [[ "${ARCHIVE_STEP:-Q}" == TAPE ]] ; then
+    module use -a /sw/rdtn/modulefiles
+    module load hsi
   fi
   ulimit -s unlimited
   export TZ=UTC

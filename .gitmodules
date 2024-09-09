@@ -1,9 +1,7 @@
 [submodule "ufs-weather-model"]
     path = sorc/hafs_forecast.fd
-# This points to the following pull request:
-# - https://github.com/ufs-community/ufs-weather-model/pull/2326
-    url = https://github.com/SamuelTrahanNOAA/ufs-weather-model
-    branch = number-concentration
+    url = https://github.com/ufs-community/ufs-weather-model
+    branch = develop
 [submodule "UFS_UTILS"]
     path = sorc/hafs_utils.fd
     url = https://github.com/ufs-community/UFS_UTILS
